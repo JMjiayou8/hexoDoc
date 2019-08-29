@@ -1,15 +1,18 @@
 ---
 title: css实现基本图形
 date: 2019-08-28 10:37:37
+
 tags:
   - css
 ---
 
-日常开发经常会遇到小箭头之类的设计，以往是截小图片，现在大多采用 iconfont 字体图标。但还是整理一番纯 css 实现吧。
+日常开发经常会遇到小箭头之类的设计，以往是截小图片，现在大多采用 iconfont 字体图标。然后我网上搜索了一下，发现[张鑫旭](https://www.zhangxinxu.com/wordpress/2019/01/pure-css-shapes/)年初发布了一篇整理，内容比较全面 💜。
+现在这篇记录了我经常遇到的以及我的处理方式,不断学习 ing🆙
+我的风格就是直接上代码段啦。
 
 <!-- more -->
 
-> 三角形
+#### 三角形
 
 <style>
 .trangle {
@@ -32,7 +35,7 @@ tags:
 <div class="trangle"></div>
 ```
 
-> 箭头
+#### 箭头
 
 <style>
 .arrow {
@@ -73,7 +76,7 @@ tags:
 <div class="arrow"></div>
 ```
 
-> 圆环
+#### 圆环
 
 <style>
 .ring1 {
@@ -97,7 +100,7 @@ tags:
 </style>
 <div class="ring1"></div>
 ```
-> 渐变圆环
+#### 渐变圆环
 
 <style>
 .ring2 {
@@ -132,15 +135,17 @@ tags:
 <div class="ring2"></div>
 ```
 
-> 梯形
+#### 梯形
 
 <style>
+
 .trapezoid {
   width: 100px;
   height: 25px;
   padding: 0.5em 1em 0.35em;
   position: relative;
   color: #fff;
+ display:inline-block;
 }
 
 .trapezoid::before {
@@ -155,9 +160,10 @@ tags:
   transform: perspective(0.5em) rotateX(3deg);
 }
 </style>
-<div class="trapezoid"></div> 
+<div class="trapezoid"></div>
 ```
 <style>
+<!-- 这是之前在做的时候在网上搜到的一种解决方式 -->
 .trapezoid {
   width: 100px;
   height: 25px;
@@ -176,6 +182,74 @@ tags:
   background: #58a;
   transform: perspective(0.5em) rotateX(3deg);
 }
+
 </style>
-<div class="trapezoid"></div> 
+<div class="trapezoid"></div>
+```
+
+#### 优惠券锯齿效果
+
+<style>
+.coupon {
+  background: red;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  width: 100px;
+}
+.coupon::before {
+  content: ' ';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-right: 5px dotted #fff;
+  left: -2px;
+}
+.coupon::after {
+  content: ' ';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-left: 5px dotted #fff;
+  right: -2px;
+}
+</style>
+<div class="coupon"></div>
+
+```
+
+<style>
+.coupon {
+  background: red;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  width: 100px;
+}
+.coupon::before {
+  content: ' ';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-right: 5px dotted #fff;
+  left: -2px;
+}
+.coupon::after {
+  content: ' ';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-left: 5px dotted #fff;
+  right: -2px;
+}
+</style>
+<div class="coupon"></div>
 ```
