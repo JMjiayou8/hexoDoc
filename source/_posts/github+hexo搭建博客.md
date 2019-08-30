@@ -21,8 +21,8 @@ tags:
 
 #### 引入 hexo
 
-- 实话说并不知道有这样现成的博客系统，是我搜索 github 建博客的时候那个博主介绍的。既然有便捷的工具那就尝试一下啦。
-- 需要 nodejs 和 git 的环境，这是基础，就不赘述了。
+- 实话说并不知道有这样现成的博客系统，是我搜索 github 建博客的时候那个博主介绍的。既然有便捷的工具那就尝试一下啦。需要 nodejs 和 git 的环境，这是基础，就不赘述了。
+- 💟[hexo 官方文档](https://hexo.io/zh-cn/docs/)
 
 ```
 mkdir hexoPro
@@ -57,19 +57,31 @@ ls #此时会显示一些文件
 mkdir key_backup
 cp id_rsa* key_backup
 rm id_rsa* #以上三步为备份和移除原来的SSH key设置
-ssh-keygen -t rsa -C "邮件地址@youremail.com" #生成新的key文件,邮箱地址填你的Github地址
+ssh-keygen -t rsa -C "xxx@xxx.com" #生成新的key文件,邮箱地址填你的Github地址
 #Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):<回车就好，当然也可以输入自己喜欢的名字>
 #接下来会让你输入密码，然后会确认一遍，如果是Linux可能是隐形字
 #上面的操作都成功之后会出现一个图，画的很拙劣，是表示OK了
 ```
 
+- 配置 ssh
+
+1. 获取`ssh key`
+
+```
+cd /Users/xxx/.ssh/
+cat id_rsa.pub
+```
+
+2. 到 github 的[账号设置](https://github.com/settings/keys)页面里，找到`SSH and GPG keys`,点击右上角的`New SSH Key`,在 Key 的输入框输入刚刚得到的 key 呀，Title 任意填。
+
 #### hexo 使用
 
-- [文档](http://theme-next.iissnan.com/getting-started.html)
+- hexo 有许多的优秀的主题可供选择哦~[hexo 主题选择](https://hexo.io/themes/)
+- 我选择的易于上手，且既符合我个性的极简风格 😬[Next 主题使用文档](http://theme-next.iissnan.com/getting-started.html)
 
-- 文章会自动生成目录呢，棒棒哒 💯
+###### 文章会自动生成目录呢，棒棒哒 💯
 
-> 点击爱心效果
+###### 点击爱心效果
 
 1. 在/themes/next/source/js/src 下新建文件 clicklove.js
 
@@ -82,4 +94,31 @@ ssh-keygen -t rsa -C "邮件地址@youremail.com" #生成新的key文件,邮箱�
 ```
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
+```
+
+###### 添加 live2d 动画效果
+
+1. `npm install hexo-helper-live2d --save`
+2. [插件预览地址](https://huaji8.top/post/live2d-plugin-2.0/) 选择喜欢的形象下载 npm 包呀。我喜欢小白猫咪，所以 `npm install live2d-widget-model-tororo`
+3. 在`_config.yml` 中加入以下代码
+
+```
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  model:
+    use: live2d-widget-model-tororo #白猫
+    # use: live2d-widget-model-hijiki #黑猫
+
+  display:
+    position: right
+    width: 300
+    height: 450
+    hOffset: 0 # 调节水平位置
+    vOffset: -50 # 调节垂直位置
+  mobile:
+    show: false
 ```
