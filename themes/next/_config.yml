@@ -93,9 +93,9 @@ index_with_subtitle: false
 menu:
   home: / || home
   # about: /about/ || user
-  tags: /tags/ || tags
+  tags: /tags/ || tags #标签
   # categories: /categories/ || th
-  archives: /archives/ || archive
+  archives: /archives/ || archive #归档
   #schedule: /schedule/ || calendar
   # commonweal: /404/ || heartbeat
 
@@ -123,7 +123,7 @@ scheme: Mist
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 #social:
-#GitHub: https://github.com/yourname || github
+GitHub: https://github.com/JMjiayou8 || github
 #E-Mail: mailto:yourname@gmail.com || envelope
 #Google: https://plus.google.com/yourname || google
 #Twitter: https://twitter.com/yourname || twitter
@@ -150,7 +150,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-#avatar: /images/avatar.gif
+avatar: /images/avatar.jpeg
 
 # Table Of Contents in the Sidebar
 toc:
