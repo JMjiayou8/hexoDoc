@@ -34,11 +34,11 @@ util 包提供实用程序类，包括用于复制粘贴的 `mxClipboard`、`mxD
 
 > 事件
 
-有三种不同类型的事件，即本地 DOM 事件、在 mxEventSource 中激发的 mxEventObjects 和在 mxGraph 中激发的 mxMouseEvents。
+有三种不同类型的事件，即本地 DOM 事件、在 `mxEventSource` 中激发的 `mxEventObjects` 和在 mxGraph 中激发的 `mxMouseEvents。`
 
 - mxEvent 中提供了一些用于处理本机事件的帮助程序方法。它还负责解决 dom 节点和 javascript 事件处理程序之间的循环，这可能导致 IE6 内存泄漏。
-- mxGraph 中的大多数自定义事件都是使用 mxEventSource 实现的。它的侦听器是接收发送者和 mxEventObject 的函数。此外，mxGraph 类会触发特殊的 mxMouseEvents，这些事件是使用鼠标监听器处理的，鼠标监听器是提供 mousedown、mousemove 和 mouseup 方法的对象。
-- mxEventSource 中的事件是使用 mxEventSource.fireEvent 激发的。使用 mxEventSource.addListener 和 mxEventSource.removeListener 添加和删除侦听器。mxGraph 中的 mxMouseEvents 使用 mGgraph.fireMouseEvent 激发。分别使用 mxGraph.addMouseListener 和 mxGraph.removeMouseListener 添加和删除侦听器。
+- mxGraph 中的大多数自定义事件都是使用 `mxEventSource` 实现的。它的侦听器是接收发送者和 `mxEventObject` 的函数。此外，mxGraph 类会触发特殊的 `mxMouseEvents，这些事件是使用鼠标监听器处理的，鼠标监听器是提供` mousedown、mousemove 和 mouseup 方法的对象。
+- `mxEventSource` 中的事件是使用 `mxEventSource.fireEvent` 激发的。使用 `mxEventSource.addListener` 和 `mxEventSource.removeListener` 添加和删除侦听器。mxGraph 中的 mxMouseEvents 使用 `mGgraph.fireMouseEvent` 激发。分别使用 mxGraph.addMouseListener 和 mxGraph.removeMouseListener 添加和删除侦听器。
 
 > Key 绑定
 
