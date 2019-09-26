@@ -23,3 +23,8 @@ tags:
 
 这个组件是在我都不知道`cron表达式`是何方神圣的时候临危受命的，但是我看项目中竟然不是引入 npm 包的形式，而是自己写的。人格担保，肯定是我不知道从哪里摘来的了。。。唔，整理了放到我自己的 [git](https://github.com/JMjiayou8/static_demo/tree/master/blog/CronInput) 上了,我这个伸手党太可恶了。
 <img width=400 src="/images/cron.png" >
+
+## TextScroll -- 文字滚动
+
+[github 地址](https://github.com/bingyang519/vueFlexibleComponents)
+这是写 h5 手机端时用到的一个组件，可以下载下来自己改动封装。还是蛮好用的。

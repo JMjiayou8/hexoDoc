@@ -17,57 +17,57 @@ tags:
 
 - AForm.vue
 
-```
+```html
 <template>
-    <form ref="form">
-        ...
-    </form>
+  <form ref="form">
+    ...
+  </form>
 </template>
 <script>
-export default{
-    methods:{
-        resetFields(callback) {
-            this.$refs.form.resetFields();
-            callback(true);
-        },
-        validate(callback) {
-            this.$refs.form.validate(valid => {
-                callback(valid);
-            });
-        }
+  export default {
+    methods: {
+      resetFields(callback) {
+        this.$refs.form.resetFields()
+        callback(true)
+      },
+      validate(callback) {
+        this.$refs.form.validate(valid => {
+          callback(valid)
+        })
+      }
     }
-}
+  }
 </script>
 ```
 
 - BDialog.vue
 
-```
+```html
 <template>
-    <el-dialog ...>
-        <a-form ref="addForm"></a-form>
-        <span slot="footer" class="dialog-footer">
-            <el-button type="cancel" @click="closeDialog">取消</el-button>
-            <el-button type="save" @click="saveData">保存</el-button>
-         </span>
-    </el-dialog>
+  <el-dialog>
+    <a-form ref="addForm"></a-form>
+    <span slot="footer" class="dialog-footer">
+      <el-button type="cancel" @click="closeDialog">取消</el-button>
+      <el-button type="save" @click="saveData">保存</el-button>
+    </span>
+  </el-dialog>
 </template>
 <script>
-export default{
-    methods:{
-       closeDialog() {
-            this.$refs["addForm"].resetFields(function() {});
-            //todo 取消事件
-        },
-        saveData() {
-            let self = this;
-            self.$refs["addForm"].validate(valid => {
-                if (valid) {
-                    //todo 保存事件
-                }
-            });
-         }
+  export default {
+    methods: {
+      closeDialog() {
+        this.$refs['addForm'].resetFields(function() {})
+        //todo 取消事件
+      },
+      saveData() {
+        let self = this
+        self.$refs['addForm'].validate(valid => {
+          if (valid) {
+            //todo 保存事件
+          }
+        })
+      }
     }
-}
+  }
 </script>
 ```

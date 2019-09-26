@@ -12,7 +12,7 @@ tags:
 
 > 参考地址
 
-- [️API](http://jgraph.github.io/mxgraph/docs/js-api/files/index-txt.html)
+- [API](http://jgraph.github.io/mxgraph/docs/js-api/files/index-txt.html)
 - [在线例子](https://jgraph.github.io/mxgraph/javascript/index.html)
 - [github 地址](https://github.com/jgraph/mxgraph)
 
@@ -331,26 +331,6 @@ self.graph.setCellsEditable(false);
 self.graph.connectionHandler.setCreateTarget(true);
 ```
 
-- 设置 html 样式的标签 label
-
-```
-// Label 将显示 Html 格式的 Value
-self.graph.setHtmlLabels(true);
-//设置默认任务标签样式
-self.graph.convertValueToString = function(cell) {
-  if (mxUtils.isNode(cell.value)) {
-    if (cell.vertex) {
-      return (
-        "<p class='vertexLabel'>" +
-        decodeStr(cell.getAttribute("activityName") || "") +
-        "</p>"
-      );
-    }
-  }
-  return "";
-};
-```
-
 - 小图预览
 
 ```
@@ -367,33 +347,6 @@ var listener = function(sender, evt)
 };
 graph.getModel().addListener(mxEvent.UNDO, listener);
 graph.getView().addListener(mxEvent.UNDO, listener);
-```
-
-- 设置悬浮 title
-
-```
-graph.setTooltips(true);
-graph.getTooltipForCell = function(cell) {
-  var label = this.convertValueToString(cell);
-  return "Tooltip for " + label;
-};
-```
-
-- 设置背景网格图
-
-```
-//官方api提供的设置背景图方式
-//然而效果一般般，还没找到可以完美展现的方式。图片没有平铺，位置也不太对。。。
-var img = new mxImage(require("@/assets/images/grid.png"),"2000","1000");
-graph.setBackgroundImage(img);
-graph.view.validate();
-
-
-
-
-//在例子中找到的方法，还算比较完美的。只是不知道会不会有坑。。。
-graph.container.style.backgroundImage ="url(" + require("@/assets/images/grid.png") + ")";
-graph.getView().updateStyle = true;
 ```
 
 - 设置快捷键

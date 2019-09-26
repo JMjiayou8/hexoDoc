@@ -17,3 +17,7 @@ tags:
 #### WdatePicker 时间日期插件
 
 [古老的官网](http://www.my97.net/demo/index.htm)、[在线 DEMO](http://www.my97.net/demo/index.htm)
+
+#### typed.js 打字机效果
+
+[在线 demo](http://cheng.lolku.cn/html/typed.html)

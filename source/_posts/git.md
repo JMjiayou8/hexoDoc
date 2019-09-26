@@ -2,7 +2,7 @@
 title: git
 date: 2018-8-23 09:16:37
 tags:
-  - 个人
+  - git
 ---
 
 无奈，一直在清闲的公司任职，对于 git 的使用只需要最基本的操作即可。
@@ -51,3 +51,7 @@ git commit -m "Initial commit"
 git push -u origin master
 
 ```
+
+###### cherry-pick
+
+[参考网址](https://blog.csdn.net/qq_32452623/article/details/79449534)
