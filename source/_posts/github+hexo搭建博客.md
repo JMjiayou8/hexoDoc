@@ -74,6 +74,10 @@ cat id_rsa.pub
 
 2. 到 github 的[账号设置](https://github.com/settings/keys)页面里，找到`SSH and GPG keys`,点击右上角的`New SSH Key`,在 Key 的输入框输入刚刚得到的 key 呀，Title 任意填。
 
+#### 问题及解决方案
+
+[参考链接](https://blog.csdn.net/chwshuang/article/details/52350559)
+
 #### hexo 使用
 
 - hexo 有许多的优秀的主题可供选择哦~[hexo 主题选择](https://hexo.io/themes/)

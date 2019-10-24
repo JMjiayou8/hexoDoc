@@ -7,11 +7,31 @@ tags:
 
 整理一波 vue 开发过程中遇到的比较细节但很无奈的小问题吧
 
-#### 刷新显示差值语句
+<!--more-->
+
+#### 插值闪烁
+
+1. 使用 `v-text` 和 `v-html` 指令来替代&#123;&#123;&#125;&#125;
+2. 使用 `v-cloak`
+
+```html
+<p v-cloak>{{msg}}</p>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+```
 
 #### element-ui 下拉框选中不赋值
 
+- 多数情况下是因为某个地方重置了属性值
+
 #### 数组赋值操作
+
+```javascript
+this.$set(arr, index, value)
+```
 
 #### vue 获取 dom 元素位置
 

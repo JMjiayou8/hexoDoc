@@ -1,6 +1,6 @@
 ---
 title: vue第三方组件整理
-date: 2019-8-03 09:16:37
+date: 2019-10-20 09:16:37
 tags:
   - vue
 ---
@@ -28,3 +28,17 @@ tags:
 
 [github 地址](https://github.com/bingyang519/vueFlexibleComponents)
 这是写 h5 手机端时用到的一个组件，可以下载下来自己改动封装。还是蛮好用的。
+
+## vue-epg --- 基于 Vue 开发的 TV 端 web 焦点管理插件
+
+[npm 地址](https://www.npmjs.com/package/vue-epg)
+[文档地址](https://www.kancloud.cn/koala-gc/vue-epg/758916)
+
+epg 的焦点管理组件,还算比较好用，至于坑嘛，因为不用我去调试，所以我就搭了个架子，电脑调试都好好的，不清楚真的部署到机顶盒会发生啥，hiahia
+
+## vue-awesome-swiper --- swiper 轮播组件
+
+[API 文档](https://3.swiper.com.cn/api/index.html)
+[在线实例](https://github.surmon.me/vue-awesome-swiper/)
+
+swiper 算是很成熟很常见的轮播组件了，这款 vue 版本的也是一如既往的好用。
