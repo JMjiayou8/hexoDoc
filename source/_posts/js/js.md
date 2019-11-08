@@ -3,57 +3,26 @@ title: js基础
 date: 2019-11-07 10:37:37
 
 tags:
-  - html
+  - js
 ---
-js基础
+
+着重介绍js基础和实战
 <!--more-->
 
-1. [设置 placeholder 样式](https://www.cnblogs.com/hcxwd/p/9232936.html)
+### 基础
 
-```css
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #666;
-  font-size: 16px;
-}
+### 创建
 
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #666;
-  font-size: 16px;
-}
+### 全局对象
 
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #666;
-  font-size: 16px;
-}
+> Math
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #666;
-  font-size: 16px;
-}
-```
+> Date
 
-2. inline-box 间隙
+### 日常开发技巧，调试
+其实没有啥高级的技巧,简单的js直接在浏览器控制台运行，复杂一点的个人习惯新建js文件，再用node环境运行。
 
-一般设置块元素一行展示，除了 float,flex 之类的，常用的方法是设置 display:inline-box;但会发现元素之间会有间隙。
-犹豫代码编辑时元素单行展示，识别换行符为一个字体大小。
 
-```html
-<!-- 解决方案一是将元素一行编辑，但是吧，太丑啦。 -->
-<!-- 解决方案二是将父元素 font-size 设为 0 -->
-```
 
-3. input 输入框自动填充黄色背景解决方案
 
-- [参考网址](https://blog.csdn.net/liyujun1989/article/details/77587419)
 
-```css
-input:-webkit-autofill {
-  background-color: #faffbd;
-  background-image: none;
-  color: #000;
-}
-```
