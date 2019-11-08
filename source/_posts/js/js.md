@@ -1,10 +1,12 @@
 ---
-title: css常见小结
-date: 2019-08-28 10:37:37
+title: js基础
+date: 2019-11-07 10:37:37
 
 tags:
-  - css
+  - html
 ---
+js基础
+<!--more-->
 
 1. [设置 placeholder 样式](https://www.cnblogs.com/hcxwd/p/9232936.html)
 

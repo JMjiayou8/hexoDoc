@@ -1,0 +1,57 @@
+---
+title: css常见需求总结
+date: 2019-11-06 10:37:37
+
+tags:
+  - css
+---
+
+本篇根据日常管理系统遇到比较多的情况入手，介绍常见的处理方法
+
+<!--more-->
+#### 字体
+> 常规
+```css
+span{
+  font-weight:bolder;/*字体加粗*/
+}
+```
+> 超链接
+
+```css
+a{
+  cursor:pointer;/*鼠标移上去有小手*/
+  text-decoration:underline;/*下划线装饰，去除设置为none*/
+}
+```
+
+> 多余展示省略号
+```css
+p{
+  /*需要固定宽度*/
+  width: 50px;
+  /* 下面三句是固定搭配，缺一不可*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+```
+
+#### 布局
+
+> 元素横排
+1. 设置为float浮动布局
+2. 设置元素为行内块元素
+3. 利用position解决
+4. flex布局
+
+> 元素居中
+
+
+
+
+
+
+
+
+
