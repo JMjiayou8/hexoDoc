@@ -118,9 +118,55 @@ var person={
 #### 函数(Function)
 ```javascript
 var func=function(){
-  
-};
+  };
 ```
+
+### 全局对象
+
+除了基础的6种数据类型，还有几类额外的全局对象类型，大致了解一下。
+
+#### Date
+
+日期对象用于处理日期和时间。
+```javascript
+var date=new Date();
+typeof date;//'object'
+Object.prototype.toString.call(date);//"[object Date]"
+```
+摘选常用的方法讲解，全部清单见：[链接~](https://www.runoob.com/jsref/jsref-obj-date.html) ; get方法都一一对应set方法，不赘述。
+
+| 方法名 | 描述 | 备注 |
+| - | - | - |
+| getFullYear() | 以四位数字返回年份 | date.getFullYear();//2019 |
+| getMonth() | 返回月份 (0 ~ 11) | date.getMonth();|
+| getDate() | 返回一个月中的某一天 (1 ~ 31) | date.getDate();|
+| getDay() | 返回一周中的某一天 (0 ~ 6) | date.getDay();|
+| getHours() | 返回小时 (0 ~ 23) | date.getHours();|
+| getMinutes() | 返回分钟 (0 ~ 59) | date.getMinutes();|
+| getSeconds() | 返回秒数 (0 ~ 59) | date.getSeconds();|
+| getTime()| 返回 1970 年 1 月 1 日至今的毫秒数| date.getTime();或者+date;
+
+#### Math
+
+Math 对象用于执行数学任务。Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()。
+```javascript
+var math=Math;
+typeof math;//'object'
+Object.prototype.toString.call(math);//"[object Math]"
+```
+摘选常用的方法讲解，全部清单见：[链接~](https://www.runoob.com/jsref/jsref-obj-math.html)
+
+| 方法名 | 描述 | 备注 |
+| - | - | - |
+| max(x,y,z,...,n) | 求最大值 | Math.max(1,2,7,3); //7|
+| min(x,y,z,...,n) | 求最小值 | Math.min(1,2,7,3); //1 |
+| random() | 返回 0 ~ 1 之间的随机数。 | Math.random(); |
+| abs(x) | 返回 x 的绝对值。 | Math.abs(-1);//1 |
+| ceil(x)|对 x 进行向上取整。|Math.ceil(4.1);//5<br>Math.ceil(4.6);//5
+| floor(x)|对 x 进行向下取整。|Math.floor(4.1);//4<br>Math.floor(4.6);//4
+| round(x)|四舍五入|Math.round(4.1);//4<br>Math.round(4.6);//5<br>
+
+
 
 
 

@@ -14,6 +14,10 @@ tags:
 ```css
 span{
   font-weight:bolder;/*字体加粗*/
+  font-style: italic;/*字体倾斜*/
+}
+em,i{
+   font-style: normal;/*去除字体倾斜*/
 }
 ```
 > 超链接
@@ -21,7 +25,11 @@ span{
 ```css
 a{
   cursor:pointer;/*鼠标移上去有小手*/
-  text-decoration:underline;/*下划线装饰，去除设置为none*/
+  text-decoration:underline;/*下划线装饰*/
+  text-decoration:none;/*去除下划线装饰*/
+}
+a:hover{
+  opacity:.8;/*悬浮透明效果*/
 }
 ```
 
@@ -40,6 +48,7 @@ p{
 #### 布局
 
 > 元素横排
+
 1. 设置为float浮动布局
 2. 设置元素为行内块元素
 3. 利用position解决
