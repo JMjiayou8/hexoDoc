@@ -56,6 +56,9 @@ jquery基础
 |:radio<br>:checkbox<br>:submit<br>:reset|所有单选按钮<br>所有复选框<br>所有提交按钮<br>所有重置按钮|$(":radio")`<input type="radio" />` <br>$(":checkbox")`<input type="checkbox" />` <br>$(":submit")`<input type="submit" />` <br>$(":reset")`<input type="reset" />` 
 
 ### 方法
+
+摘选常用的方法，更多[戳这里~](http://t.mb5u.com/jquery/)
+
 | 方法 | 说明 | 备注 |
 | - | - | - |
 | <b>自定义属性</b> |  |
@@ -79,6 +82,96 @@ jquery基础
 | first()<br>last()|第一个/最后一个元素|$('li').first()<br>$('li').last()
 | <b>样式</b> |  |
 | css(key,val) | 设置样式 |$("p").css("color");<br>$("p").css("color","#333");
+| <b>效果</b> |  |
+| show()<br>hide()<br>toggle() | 显示、隐藏元素 |$("p").show();<br>$("p").hide();<br>$("p").toggle();
+| slideDown()<br>slideUp()<br>slideToggle() | 高度变化 |$("p").slideDown();<br>$("p").slideUp();<br>$("p").slideToggle();
+| fadeIn()<br>fadeOut()<br>fadeToggle()<br>fadeTo() | 不透明度变化 |$("p").fadeIn();<br>$("p").fadeOut();<br>$("p").fadeToggle();<br>$("p").fadeTo("slow", 0.66);
+
+### 事件
+
+事件类型：click,dbclick,hover,change,blur,keydown等等
+在选择元素上绑定一个或多个事件的事件处理函数:`on(events,[selector],[data],fn)`
+
+```javascript
+$("p").on("click", function(){
+  alert( $(this).text() );
+});
+
+//也可以直接使用click方法
+$("p").click( function(){
+  alert( $(this).text() );
+});
+```
+
+模仿悬停事件:`hover([over,]out)`
+```javascript
+$("p").hover(
+  function () {
+    $(this).addClass("hover");
+  },
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+```
+
+### ajax
+
+通过 HTTP 请求加载远程数据:`$.ajax(url,[settings])`
+```javascript
+$.ajax({
+  url,
+  success:function(){
+
+  },
+  error:function(){
+
+  },
+})
+
+```
+
+get请求:$.get(url, [data], [callback], [type])
+```javascript
+$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+
+});
+
+$.get("test.cgi", 
+  { name: "John", time: "2pm" },
+  function(data){
+    alert("Data Loaded: " + data);
+  }
+);
+```
+post请求:$.post(url, [data], [callback], [type])
+
+```javascript
+$.ajax({
+   type: "POST",
+   url: "some.php",
+   data: "name=John&location=Boston",
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   }
+});
+
+$.post("test.php", 
+  { name: "John", time: "2pm" },
+  function(data){
+    alert("Data Loaded: " + data);
+  }
+);
+```
+
+序列form表单内容为字符串:serialize()
+```javascript
+$("form").serialize()
+```
+
 
 
 

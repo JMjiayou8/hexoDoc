@@ -130,8 +130,9 @@ p{
   background:#f1f1f1 url('xx') no-repeat center/cover;/*定义背景色+背景图片*/
 }
 ```
+#### 其它
 
-#### 布局实战
+##### 布局
 > 显示 [display](https://www.runoob.com/cssref/pr-class-display.html)
 
 了解display前，先对元素分一下类：块元素和内联元素。
@@ -151,15 +152,60 @@ p{
 
 超级好用的css3属性，无奈兼容性不佳，后期上手vue项目时可再着重学习。
 
+##### 表单
 
-#### 表格+列表实战
->
+```css
+/* 常规设置长宽边框背景等即可 */
+input{}
 
-#### 表单实战
+/* 下拉也正常设置即可，但是如果想改option样式，一般需要重构 */
+select{}
 
-### 日常开发技巧，调试
+/* 有特殊样式要求时单选，多选一般都是重构 */
+input[type='radio']{}
+input[type='checkbox']{}
+
+/* 常规设置长宽边框背景等即可 */
+textarea{
+  resize:none;/* 设置文本框不可改变大小*/
+}
+```
+##### 表格
+
+表格样式 字体、长宽等常规设置就不赘述了
+```css
+/* 1. 边框的设置上,注意点是`tr`设置边框无效 */
+table{
+  border-collapse: collapse;/*边框合并*/
+  border-spacing:2px;/*单元格边框间距，设置合并后则失效*/
+}
+table,th,td{
+   border:1px solid #333;
+}
+/* 2. 奇偶行不同色 */
+tr:nth-child(2n){
+  background:#f1f1f1;
+}
+tr:nth-child(2n+1){
+  background:#fff;
+}
+```
+
+##### 列表
+
+```css
+ul,ol{
+  list-style:none;/*设置列表左侧标识样式*/
+}
+```
+
+#### 日常开发技巧，调试
 
 浏览器控制台`Elements`页，点选页面元素对应html片段，右侧`Styles`为对应css设置，`Computed`为最终元素对应的css设置。
+
+需要注意的是样式的优先级问题
+1. 一般情况下内联等级最高，但一般不建议写内联样式，常规都是定义class写在css文件里。
+2. 慎用!important;
 
 
 

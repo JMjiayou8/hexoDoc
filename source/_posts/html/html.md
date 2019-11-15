@@ -29,7 +29,7 @@ html文件通俗一点讲就是由标签组成的文档，所以基础就是要�
 |`h1`-`h6`|标题|
 |`p`|段落|
 |`a`|超链接|`<a href="xxx"></a>`
-|`ul`、`ol`、`li`|列表|`<ul><li></li></ul>`<br>`<ol><li></li></ol>`
+|`ul`、`ol`、`li`|列表|`<ul><li>无序列表</li></ul>`<br>`<ol><li>有序列表</li></ol>`
 |<b>表单</b>|
 |`form`|表单|
 |`input`、`select`、`textarea`|表单元素|输入框、下拉框、多行文本框
@@ -63,16 +63,17 @@ html文件通俗一点讲就是由标签组成的文档，所以基础就是要�
 
 ### 实战
 
-1. 新建一个html文件test.html
+#### 新建一个html文件test.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"><!-- 中文网页需要声明编码，否则会出现乱码 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>test页面</title>
-  <link href="xxx.css" rel="stylesheet"/>
+  <title>test页面</title><!-- 出现在浏览器tab的名称 -->
+  <link href="xxx.css" rel="stylesheet"/><!-- 引入的外部css资源 -->
+  <!-- 内部定义的样式 -->
   <style>
     div{
       color:#000;
@@ -83,7 +84,9 @@ html文件通俗一点讲就是由标签组成的文档，所以基础就是要�
   <div>
     test页面
   </div>
+  <!-- 引入的外部js资源 -->
   <script src="xxx.js"></script>
+  <!-- 内部定义的js脚本 -->
   <script>
     ...
   </script>
@@ -91,6 +94,106 @@ html文件通俗一点讲就是由标签组成的文档，所以基础就是要�
 </html>
 ```
 
+#### 表单
+
+```html
+<!-- action:规定当提交表单时向何处发送表单数据。method:用于发送表单数据的 HTTP 方法。 -->
+<form  action="xxx" method="get">
+<!-- label的for属性和元素id一致，可以选择该标签时会自动将焦点转到和标签相关的表单控件上。 -->
+  <div class="form-item">
+    <label for="text"
+      >文本
+      <input type="text" id="text" />
+    </label>
+  </div>
+  <div class="form-item">
+    <label for="pwd"
+      >密码框
+      <input type="password" id="pwd" />
+    </label>
+  </div>
+  <!-- 同一组单选、多选按钮 name属性要一样 -->
+  <div class="form-item">
+    <label for="radio1"
+      >单选1
+      <input type="radio" id="radio1" name="radio" value="1" checked />
+    </label>
+    <label for="radio2"
+      >单选2
+      <input type="radio" id="radio2" name="radio" value="2" />
+    </label>
+  </div>
+  <div class="form-item">
+    <label for="check1"
+      >多选1
+      <input type="checkbox" id="check1" name="check" value="1" checked />
+    </label>
+    <label for="check2"
+      >多选1
+      <input type="checkbox" id="check2" name="check" value="2" />
+    </label>
+  </div>
+  <div class="form-item">
+    <label for="area"
+      >多行文本
+      <textarea id="area"></textarea>
+    </label>
+  </div>
+  <div class="form-item">
+    <label for="select"
+      >下拉
+      <select id="select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </label>
+  </div>
+</form>
+```
+
+#### 表格+列表实战
+
+表格:tr表示一行;th:表头一格;td:表体一格
+```html
+<table>
+  <!-- 表头区域 -->
+  <thead>
+    <!-- 表头一行 -->
+    <tr>
+      <th>表头1</th>
+      <th>表头2</th>
+    </tr>
+  </thead>
+  <!-- 表体区域 -->
+  <tbody>
+    <tr>
+      <td>11</td>
+      <td>21</td>
+    </tr>
+    <tr>
+        <td>12</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+列表
+```html
+<!-- 无序列表 -->
+<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+</ul>
+<!-- 有序列表 -->
+<ol>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+</ol>
+```
 
 ### 日常开发技巧，调试
 
