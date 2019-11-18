@@ -69,8 +69,8 @@ var attr="jsString";
 | replace() |  |  |
 | slice() |  |  |
 | split() |  |  |
-| substr() |  |  |
-| substring() |  |  |
+| substr(startIndex,num) | 从起始索引号提取字符串中指定数目的字符。 |  |
+| substring(from,to) |提取字符串中介于两个指定下标之间的字符,返回的子串包括 开始 处的字符，但不包括 结束 处的字符。  |  |
 | trim() |  |  |
 | toString() |  |  |
 
@@ -104,6 +104,7 @@ var person={
 2. person['firstname']
 ```
 
+
 #### 数组(Array)
 ```javascript
 //常见三种定义数组方式
@@ -114,6 +115,21 @@ var person={
    cars[1]="Volvo";
    cars[2]="BMW";
 ```
+> 常用方法
+
+| 方法名 | 描述 | 备注 |
+| - | - | - |
+| concat() | 连接两个或更多的数组，并返回结果。 |  |
+| sort() |排序  |  |
+| splice() |  从数组中添加或删除元素。|  |
+| reverse() |  |  |
+| push()<br>pop() | 向数组的末尾添加一个或更多元素，并返回新的长度。<br>删除数组的最后一个元素并返回删除的元素。 |  |
+| shift()<br>unshift|删除并返回数组的第一个元素。<br>向数组的开头添加一个或更多元素，并返回新的长度。|
+| substring() |  |  |
+| join() | 把数组的所有元素放入一个字符串。 |  |
+| find() |返回符合传入测试（函数）条件的数组元素。  |  |
+| find()<br>filter() |  |  |
+| forEach()<br>map()|
 
 #### 函数(Function)
 ```javascript

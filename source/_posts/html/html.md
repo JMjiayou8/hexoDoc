@@ -63,14 +63,14 @@ html文件通俗一点讲就是由标签组成的文档，所以基础就是要�
 
 ### 实战
 
-#### 新建一个html文件test.html
+#### 新建一个html文件
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"><!-- 中文网页需要声明编码，否则会出现乱码 -->
+  <!--  文档的元数据 name或者http-equiv -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>test页面</title><!-- 出现在浏览器tab的名称 -->
   <link href="xxx.css" rel="stylesheet"/><!-- 引入的外部css资源 -->
   <!-- 内部定义的样式 -->

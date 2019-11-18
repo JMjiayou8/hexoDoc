@@ -56,7 +56,7 @@ window.location 对象用于获得当前页面的地址 (URL)，并把浏览器�
 
 ### 浏览器存储对象
 
-- localStorage
+localStorage
 
 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去删除。属性是只读的。localStorage 只支持 string 类型的存储。
 
@@ -66,7 +66,7 @@ var lastname = localStorage.getItem("key");
 localStorage.removeItem("key");
 localStorage.clear();
 ```
-- sessionStorage
+sessionStorage
 
 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
 
@@ -79,17 +79,17 @@ sessionStorage.clear();
 
 ### 浏览器弹框
 
-- 警告框
+警告框
 
 ```javascript
 alert("你好，我是一个警告框！");
 ```
-- 确认框
+确认框
 
 ```javascript
 window.confirm("你好，我是一个确认框！");
 ```
-- 提示框
+提示框
 
 ```javascript
 var text=window.prompt("你好，我是一个确认框！","默认值");
@@ -97,7 +97,7 @@ var text=window.prompt("你好，我是一个确认框！","默认值");
 
 ### 计时
 
-- setInterval() - 间隔指定的毫秒数不停地执行指定的代码。
+setInterval() - 间隔指定的毫秒数不停地执行指定的代码。
 
 ```javascript
 //每三秒弹出 "hello" ：
@@ -108,7 +108,7 @@ var t=setInterval(function(){
 clearInterval(t);
 ```
 
-- setTimeout() - 在指定的毫秒数后执行指定代码。
+setTimeout() - 在指定的毫秒数后执行指定代码。
 ```javascript
 //三秒后弹出 "hello" ：
 var t=setTimeout(function(){

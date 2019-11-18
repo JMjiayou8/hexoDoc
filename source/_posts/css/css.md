@@ -146,11 +146,37 @@ p{
 > 定位 position
 
 首先了解一下position属性的几个值的概念
+`static`:默认
+`relative`:相对定位元素的定位是相对其正常位置。经常被用来作为绝对定位元素的容器块。
+`absolute`:对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于`<html>`;absolute 定位使元素的位置与文档流无关，因此不占据空间。
+`fixed`:元素的位置相对于浏览器窗口是固定位置。
 
-
+```css
+/* 常用已知宽高的垂直居中方法 */
+.par{
+  position:relative;
+}
+.child{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:200px;
+  height:100px;
+  margin-left:-100px;
+  margin-top:-50px;
+}
+```
 > flex布局
 
-超级好用的css3属性，无奈兼容性不佳，后期上手vue项目时可再着重学习。
+超级好用的css3属性，无奈兼容性不佳，后期上手vue项目时可再着重学习。可以到阮一峰的[博文](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)中学习。
+```css
+/*  flex实现垂直居中,无需知道宽高 */
+.elem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
 
 ##### 表单
 
