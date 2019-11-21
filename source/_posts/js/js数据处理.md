@@ -5,87 +5,100 @@ date: 2019-11-07 11:37:37
 tags:
   - js
 ---
-本篇着重讲解js数据类型及相关内置函数
+
+本篇着重讲解 js 数据类型及相关内置函数
+
 <!--more-->
 
 ### 基础概念
 
-js数据基础类型有以下6类：
+js 数据基础类型有以下 6 类：
 
 1. 基本类型：String、Number、Boolean、Null、Undefined
-2. 引用数据类型：Object。其中包括Object,Array,Function
+2. 引用数据类型：Object。其中包括 Object,Array,Function
 
-ES6引入了一种新的原始数据类型:Symbol,表示独一无二的值。
+ES6 引入了一种新的原始数据类型:Symbol,表示独一无二的值。
 
-###  判断数据类型
+### 判断数据类型
 
 1. typeof,简易情况下常用方法
+
 ```javascript
-typeof 1;//'number'
-typeof '1';//'string'
-typeof true;//'boolean'
-typeof undefined;//'undefined'
-typeof null;//'object'
-typeof {};//'object'
-typeof [];//'object'
-typeof function a(){};//'function'
+typeof 1 //'number'
+typeof '1' //'string'
+typeof true //'boolean'
+typeof undefined //'undefined'
+typeof null //'object'
+typeof {} //'object'
+typeof [] //'object'
+typeof function a() {} //'function'
 ```
+
 2. instanceof 用的不多，就不介绍了。
 3. Object.prototype.toString.call():复杂情况下解决方法
-``` javascript
-Object.prototype.toString.call(1); //"[object Number]"
-Object.prototype.toString.call('1'); //"[object String]"
-Object.prototype.toString.call(true); //"[object Boolean]"
-Object.prototype.toString.call([]); //"[object Array]"
-Object.prototype.toString.call({}); //"[object Object]"
-Object.prototype.toString.call(undefined); //"[object Undefined]"
-Object.prototype.toString.call(); //"[object Undefined]"
-Object.prototype.toString.call(function a(){}); //"[object Function]"
+
+```javascript
+Object.prototype.toString.call(1) //"[object Number]"
+Object.prototype.toString.call('1') //"[object String]"
+Object.prototype.toString.call(true) //"[object Boolean]"
+Object.prototype.toString.call([]) //"[object Array]"
+Object.prototype.toString.call({}) //"[object Object]"
+Object.prototype.toString.call(undefined) //"[object Undefined]"
+Object.prototype.toString.call() //"[object Undefined]"
+Object.prototype.toString.call(function a() {}) //"[object Function]"
 ```
+
 ### 数字(Number)
 
 ```javascript
-var num1=1;
-var num2=1.5;
+var num1 = 1
+var num2 = 1.5
 ```
+
 > 常用方法
 
-| 方法名 | 描述 | 备注 |
-| - | - | - |
-| toFixed(x) | 把数字转换为字符串，结果的小数点后有指定位数的数字 |  |
-| toString()| 把数字转换为字符串，使用指定的基数。默认十进制| 
+| 方法名     | 描述                                               | 备注 |
+| ---------- | -------------------------------------------------- | ---- |
+| toFixed(x) | 把数字转换为字符串，结果的小数点后有指定位数的数字 |      |
+| toString() | 把数字转换为字符串，使用指定的基数。默认十进制     |
 
 ### 字符串（String）
 
 ```javascript
-var attr="jsString";
+var attr = 'jsString'
 ```
 
 > 常用方法
 
-| 方法名 | 描述 | 备注 |
-| - | - | - |
-| concat() | 连接两个或更多字符串，并返回新的字符串。 | `var a='x';var b=a.concat('y');<br>a;//"x" b;//"xy"` |
-| replace() |  |  |
-| slice() |  |  |
-| split() |  |  |
-| substr(startIndex,num) | 从起始索引号提取字符串中指定数目的字符。 |  |
-| substring(from,to) |提取字符串中介于两个指定下标之间的字符,返回的子串包括 开始 处的字符，但不包括 结束 处的字符。  |  |
-| trim() |  |  |
-| toString() |  |  |
+| 方法名                 | 描述                                                                                          | 备注                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| concat()               | 连接两个或更多字符串，并返回新的字符串。                                                      | `var a='x';var b=a.concat('y');<br>a;//"x" b;//"xy"` |
+| replace()              |                                                                                               |                                                      |
+| slice()                |                                                                                               |                                                      |
+| split()                |                                                                                               |                                                      |
+| substr(startIndex,num) | 从起始索引号提取字符串中指定数目的字符。                                                      |                                                      |
+| substring(from,to)     | 提取字符串中介于两个指定下标之间的字符,返回的子串包括 开始 处的字符，但不包括 结束 处的字符。 |                                                      |
+| trim()                 | 去除字符串两端的空格                                                                          |                                                      |
 
 ### 布尔(Boolean)
 
 布尔（逻辑）只能有两个值：true 或 false。
 
 ```javascript
-var attr=true;
+var attr = true
+
+//使用！！可以快速判断数据布尔值
+!!'' //false
+!!0 //false
+!!null //false
+!!undefined //false
+!!'0' //true
 ```
 
-
 ### 空（Null）、未定义（Undefined)
+
 ```javascript
-var attr=null;//可以通过将变量的值设置为 null 来清空变量
+var attr = null //可以通过将变量的值设置为 null 来清空变量
 ```
 
 ### 引用类型
@@ -95,17 +108,17 @@ var attr=null;//可以通过将变量的值设置为 null 来清空变量
 ```javascript
 // 定义
 var person={
-  firstname:"John", 
-  lastname:"Doe", 
+  firstname:"John",
+  lastname:"Doe",
   id:5566
 };
 //访问对象属性
-1. person.firstname  
+1. person.firstname
 2. person['firstname']
 ```
 
-
 #### 数组(Array)
+
 ```javascript
 //常见三种定义数组方式
 1. var cars=["Saab","Volvo","BMW"];
@@ -115,77 +128,72 @@ var person={
    cars[1]="Volvo";
    cars[2]="BMW";
 ```
+
 > 常用方法
 
-| 方法名 | 描述 | 备注 |
-| - | - | - |
-| concat() | 连接两个或更多的数组，并返回结果。 |  |
-| sort() |排序  |  |
-| splice() |  从数组中添加或删除元素。|  |
-| reverse() |  |  |
-| push()<br>pop() | 向数组的末尾添加一个或更多元素，并返回新的长度。<br>删除数组的最后一个元素并返回删除的元素。 |  |
-| shift()<br>unshift|删除并返回数组的第一个元素。<br>向数组的开头添加一个或更多元素，并返回新的长度。|
-| substring() |  |  |
-| join() | 把数组的所有元素放入一个字符串。 |  |
-| find() |返回符合传入测试（函数）条件的数组元素。  |  |
-| find()<br>filter() |  |  |
-| forEach()<br>map()|
+| 方法名             | 描述                                                                                         | 备注 |
+| ------------------ | -------------------------------------------------------------------------------------------- | ---- |
+| concat()           | 连接两个或更多的数组，并返回结果。                                                           |      |
+| sort()             | 排序                                                                                         |      |
+| splice()           | 从数组中添加或删除元素。                                                                     |      |
+| reverse()          |                                                                                              |      |
+| push()<br>pop()    | 向数组的末尾添加一个或更多元素，并返回新的长度。<br>删除数组的最后一个元素并返回删除的元素。 |      |
+| shift()<br>unshift | 删除并返回数组的第一个元素。<br>向数组的开头添加一个或更多元素，并返回新的长度。             |
+| join()             | 把数组的所有元素放入一个字符串。                                                             |      |
+| filter()           |                                                                                              |      |
+| forEach()<br>map() | 数组遍历，注意 forEach 内部 return 无效                                                      |
 
 #### 函数(Function)
+
 ```javascript
-var func=function(){
-  };
+var func = function() {}
 ```
 
 ### 全局对象
 
-除了基础的6种数据类型，还有几类额外的全局对象类型，大致了解一下。
+除了基础的 6 种数据类型，还有几类额外的全局对象类型，大致了解一下。
 
 #### Date
 
 日期对象用于处理日期和时间。
-```javascript
-var date=new Date();
-typeof date;//'object'
-Object.prototype.toString.call(date);//"[object Date]"
-```
-摘选常用的方法讲解，全部清单见：[链接~](https://www.runoob.com/jsref/jsref-obj-date.html) ; get方法都一一对应set方法，不赘述。
 
-| 方法名 | 描述 | 备注 |
-| - | - | - |
-| getFullYear() | 以四位数字返回年份 | date.getFullYear();//2019 |
-| getMonth() | 返回月份 (0 ~ 11) | date.getMonth();|
-| getDate() | 返回一个月中的某一天 (1 ~ 31) | date.getDate();|
-| getDay() | 返回一周中的某一天 (0 ~ 6) | date.getDay();|
-| getHours() | 返回小时 (0 ~ 23) | date.getHours();|
-| getMinutes() | 返回分钟 (0 ~ 59) | date.getMinutes();|
-| getSeconds() | 返回秒数 (0 ~ 59) | date.getSeconds();|
-| getTime()| 返回 1970 年 1 月 1 日至今的毫秒数| date.getTime();或者+date;
+```javascript
+var date = new Date()
+typeof date //'object'
+Object.prototype.toString.call(date) //"[object Date]"
+```
+
+摘选常用的方法讲解，全部清单见：[链接~](https://www.runoob.com/jsref/jsref-obj-date.html) ; get 方法都一一对应 set 方法，不赘述。
+
+| 方法名        | 描述                               | 备注                      |
+| ------------- | ---------------------------------- | ------------------------- |
+| getFullYear() | 以四位数字返回年份                 | date.getFullYear();//2019 |
+| getMonth()    | 返回月份 (0 ~ 11)                  | date.getMonth();          |
+| getDate()     | 返回一个月中的某一天 (1 ~ 31)      | date.getDate();           |
+| getDay()      | 返回一周中的某一天 (0 ~ 6)         | date.getDay();            |
+| getHours()    | 返回小时 (0 ~ 23)                  | date.getHours();          |
+| getMinutes()  | 返回分钟 (0 ~ 59)                  | date.getMinutes();        |
+| getSeconds()  | 返回秒数 (0 ~ 59)                  | date.getSeconds();        |
+| getTime()     | 返回 1970 年 1 月 1 日至今的毫秒数 | date.getTime();或者+date; |
 
 #### Math
 
 Math 对象用于执行数学任务。Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()。
+
 ```javascript
-var math=Math;
-typeof math;//'object'
-Object.prototype.toString.call(math);//"[object Math]"
+var math = Math
+typeof math //'object'
+Object.prototype.toString.call(math) //"[object Math]"
 ```
+
 摘选常用的方法讲解，全部清单见：[链接~](https://www.runoob.com/jsref/jsref-obj-math.html)
 
-| 方法名 | 描述 | 备注 |
-| - | - | - |
-| max(x,y,z,...,n) | 求最大值 | Math.max(1,2,7,3); //7|
-| min(x,y,z,...,n) | 求最小值 | Math.min(1,2,7,3); //1 |
-| random() | 返回 0 ~ 1 之间的随机数。 | Math.random(); |
-| abs(x) | 返回 x 的绝对值。 | Math.abs(-1);//1 |
-| ceil(x)|对 x 进行向上取整。|Math.ceil(4.1);//5<br>Math.ceil(4.6);//5
-| floor(x)|对 x 进行向下取整。|Math.floor(4.1);//4<br>Math.floor(4.6);//4
-| round(x)|四舍五入|Math.round(4.1);//4<br>Math.round(4.6);//5<br>
-
-
-
-
-
-
-
-
+| 方法名           | 描述                      | 备注                                           |
+| ---------------- | ------------------------- | ---------------------------------------------- |
+| max(x,y,z,...,n) | 求最大值                  | Math.max(1,2,7,3); //7                         |
+| min(x,y,z,...,n) | 求最小值                  | Math.min(1,2,7,3); //1                         |
+| random()         | 返回 0 ~ 1 之间的随机数。 | Math.random();                                 |
+| abs(x)           | 返回 x 的绝对值。         | Math.abs(-1);//1                               |
+| ceil(x)          | 对 x 进行向上取整。       | Math.ceil(4.1);//5<br>Math.ceil(4.6);//5       |
+| floor(x)         | 对 x 进行向下取整。       | Math.floor(4.1);//4<br>Math.floor(4.6);//4     |
+| round(x)         | 四舍五入                  | Math.round(4.1);//4<br>Math.round(4.6);//5<br> |

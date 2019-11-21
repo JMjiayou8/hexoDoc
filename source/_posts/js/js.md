@@ -48,6 +48,16 @@ JavaScript有6种数据类型：数字，字符串，布尔，null,undefined,对
 - while - 当指定的条件为 true 时循环指定的代码块
 - do/while - 同样当指定的条件为 true 时循环指定的代码块
 
+8. 全局函数
+
+|函数|描述|
+| - | - | 
+| decodeURI()<br>encodeURI() | 解码某个编码的 URI。<br> 把字符串编码为 URI。 |
+| isNaN() | 检查某个值是否是数字。
+| parseInt()<br>parseFloat() | 解析一个字符串并返回一个数值|
+| eval()| 计算 JavaScript 字符串，并把它作为脚本代码来执行。| 
+
+
 
 
 ### 日常开发技巧，调试

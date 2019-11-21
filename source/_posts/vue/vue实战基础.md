@@ -1,11 +1,11 @@
 ---
-title: vue基础
+title: vue实战基础
 date: 2019-11-09 09:16:37
 tags:
   - vue
 ---
 
-vue实战基础
+本篇以快速上手为原则，介绍通过vue-cli创建一个基础项目的步骤。
 
 <!--more-->
 在传统 web 开发中，我们搭建项目都以 html 结构为基础，需要操作 dom 元素然后通过 jquery 或者 js来添加各种交互功能，一旦项目改动或者项目工程较大，代码的修改将是复杂繁琐的。
@@ -16,7 +16,7 @@ vue 主要优点有两个：
 2. 组件式开发：通过 vue 的模块封装，它可以将一个 web 开发中设计的各种模块进行拆分，变成单独的组件，然后通过数据绑定，调用对应模版组件，同时传入参数，即可完成对整个项目的开发。
    我们大多数系统都是表单项繁多且内容需要根据用户的操作进行修改的，使用 vue 就可以不用像之前使用 jquery 那样频繁操作 dom 元素，关注数据变化，开发起来也更容易一些。
 
-==前提==:已了解关于 HTML、CSS 和 JavaScript 的中级知识,同时对`es6`的语法有一定了解。
+`前提`:已了解关于 HTML、CSS 和 JavaScript 的中级知识,同时对`es6`的语法有一定了解。
 
 根据实际开发，做了这个[demo 代码](https://github.com/JMjiayou8/vue-example)，采用 vue-cli3 官方脚手架( 之前重构使用的 vue-cli2，直观区别是不需要关注 webpack 配置,以及框架目录结构的区别 ),接口请求使用 axios
 
@@ -318,4 +318,10 @@ module.exports = {
 
 
 5. [scss](https://www.sass.hk/) :css预处理器
+
+```javascript
+<style lang="scss" scoped>
+  ...
+</style>
+```
 
