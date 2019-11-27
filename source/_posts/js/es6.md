@@ -34,13 +34,13 @@ let str = 'Jack'
 ;`name is ${str}`
 ```
 
-### Symbol
+<!-- ### Symbol
 
-ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名
+ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名 -->
 
 ### Set
 
-Set 对象存储的值总是唯一的,用...操作符，将 Set 转 Array
+Set 对象存储的值总是唯一的,用`...`操作符将 Set 转 Array
 
 ```javascript
 //利用set快速实现数组去重
@@ -171,8 +171,28 @@ includes()
 ;[1, 2, 3].indexOf(2) > -1 //true
 ```
 
-find()
+find(),filter():查找过滤
 
 ```javascript
-;[1, 4, -5, 10].find(n => n < 0) //-5
+let arr = [
+  { key: 1, name: 'x' },
+  { key: 2, name: 'y' }
+]
+//filter返回一个数组，包含所有符合条件的值
+arr.filter(item => item.name == 'x') //[{ key: 1, name: 'x' }]
+//find返回一个具体的子项，多个符合也只返回第一个
+arr.find(item => item.name == 'x') //{ key: 1, name: 'x' }
+```
+
+forEach()，map():遍历函数
+
+```javascript
+let arr = [
+  { key: 1, name: 'x' },
+  { key: 2, name: 'y' }
+]
+let brr = arr.map(item => item.key)
+brr //[1,2]
+
+//forEach是纯遍历，内部return无效，不会返回新的数组
 ```
