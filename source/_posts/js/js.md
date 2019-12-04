@@ -12,14 +12,14 @@ tags:
 
 ## 基础
 
-1. `JavaScript` 是 Web 的编程语言。
+`JavaScript` 是 Web 的编程语言。
 
-2. 在 html 文件中引入有两种方式：
+在 html 文件中引入有两种方式：
+1. 使用 `script` 标签。浏览器会解释并执行位于 `<script>` 和 `</script>`之间的 JavaScript 代码
+2. 把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。文件扩展名是 .js。在 `script` 标签的 "src" 属性中设置该 .js 文件
+<i class="tips">Tips:</i>浏览器加载html文件时是一边下载html一边解析，发现`script`元素，就暂停解析。js引擎执行完毕再恢复往下解析 HTML 网页。所以一般情况下script标签放到html页面底部
 
-- 使用 `script` 标签。浏览器会解释并执行位于 `<script>` 和 `</script>`之间的 JavaScript 代码
-- 把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。文件扩展名是 .js。在 `script` 标签的 "src" 属性中设置该 .js 文件：
-
-3. JavaScript 使用关键字 `var` 来定义变量， 使用等号来为变量赋值：
+JavaScript 使用关键字 `var` 来定义变量， 使用等号来为变量赋值：
 
 ```javascript
 var num = 1
@@ -33,7 +33,7 @@ var text = 'text'
 | 赋值运算符 | = += -= \*= /= %=|
 | 算术运算符 | + - \* / % ++ -- + -|共提供10个算术运算符，用来完成基本的算术运算
 | 比较运算符 | == === != !== > < >= <= |一共提供了8个比较运算符
-| 逻辑运算符 | && ！ || | 
+| 逻辑运算符 | &&  \|\| ！ | 
 | 条件运算符 | ?:| 三目运算符 vari=(condition)?value1:value2 |
 
 ### 语句
@@ -151,12 +151,14 @@ var attr = 'jsString'
 | 方法名| 描述| 备注|
 | - | - | - |
 | concat()               | 连接两个或更多字符串，并返回新的字符串。| `var a='x';var b=a.concat('y');<br>a;//"x" b;//"xy"` |
-| replace()              |||
+| replace()              |替换匹配的子字符串||
 | split()                |按照特定分隔符分隔字符串，返回数组|'a,b,c'.split(',');//["a", "b", "c"]|
 | substr(startIndex,num) | 从起始索引号提取字符串中指定数目的字符。||
 | substring(from,to)     | 提取字符串中介于两个指定下标之间的字符,返回的子串包括 开始 处的字符，但不包括 结束 处的字符。 ||
 | trim()                 | 去除字符串两端的空格||
-| btoa()<br>atob()       |任意值转为 Base64 编码<br>Base64 编码转为原来的值|不适合非 ASCII 码的字符
+| match()                | 确定原字符串是否匹配某个子字符串，返回一个数组|成员为匹配的第一个字符串
+| search()               | 返回值为匹配的第一个位置| 
+| btoa()<br>atob()       | 任意值转为 Base64 编码<br>Base64 编码转为原来的值|不适合非 ASCII 码的字符
 
 ```javascript
 var string = 'Hello World!';
@@ -209,6 +211,8 @@ undefined //NaN
 
 #### 引用类型
 
+
+
 ##### 对象(Object)
 
 ```javascript
@@ -222,10 +226,65 @@ var person={
 1. person.firstname
 2. person['firstname']
 ```
+> 方法
+
+Object():可以当作工具方法使用，将任意值转为对象。
+```javascript
+var obj = Object(1);
+obj instanceof Object // true
+obj instanceof Number // true
+
+var arr = [];
+var obj = Object(arr); // 返回原数组
+obj === arr // true
+
+//判断变量是否为对象的函数
+function isObject(value) {
+  return value === Object(value);
+}
+```
+
+Object.keys():用来遍历对象的属性,只返回可枚举的属性
+```javascript
+var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.keys(obj) // ["p1", "p2"]
+```
+
+Object.getOwnPropertyNames():用来遍历对象的属性,还会返回不可枚举的属性名
+```javascript
+var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.getOwnPropertyNames(obj) // ["p1", "p2"]
+```
+
+ES5中，Object大部分都是实例方法。使用率不是特别高。简单介绍几个常用的方法的使用场景。
+
+Object.prototype.toString()
+```javascript
+//封装返回变量数据类型
+var dataType = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+```
+
+Object.prototype.hasOwnProperty()：实例对象自身是否具有该属性。
+```javascript
+var obj = {
+  p: 123
+};
+obj.hasOwnProperty('p') // true
+obj.hasOwnProperty('toString') // false
+```
 
 ##### 数组(Array)
-
-本质上，数组属于一种特殊的对象。typeof运算符会返回数组的类型是object。
 
 ```javascript
 //常见三种定义数组方式
@@ -235,20 +294,32 @@ var person={
    cars[0]="Saab";
    cars[1]="Volvo";
    cars[2]="BMW";
+
+var arr = [1, 2, 3];
+typeof arr // "object";本质上，数组属于一种特殊的对象。typeof运算符会返回数组的类型是object。
+Array.isArray(arr) // true;弥补typeof运算符的不足。
 ```
 
 > 常用方法
 
-| 方法名| 描述| 备注 |
-| - | - | - |
-| concat()           | 连接两个或更多的数组，并返回结果。||
-| sort()             | 排序||
-| slice(start,end)   | 返回选定的元素,不会改变原始数组。||
-| splice()           | 从数组中添加或删除元素。||
-| reverse()          | 倒转数组元素||
-| push()<br>pop()    | 向数组的末尾添加一个或更多元素，并返回新的长度。<br>删除数组的最后一个元素并返回删除的元素。 ||
-| shift()<br>unshift | 删除并返回数组的第一个元素。<br>向数组的开头添加一个或更多元素，并返回新的长度。|
-| join()             | 把数组的所有元素放入一个字符串。||
+更全面的列表见：[戳这里~](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+| 方法名| 描述| 备注 |兼容性
+| - | - | - | - |
+| concat()           | 连接两个或更多的数组，并返回结果。|原数组不变|√
+| slice(start,end)   | 返回选定的元素|不会改变原始数组|√
+| splice(start, count, addElement1, addElement2,) |删除或添加元素<br>第二个参数为0表示添加|会改变原数组|√
+| reverse()          | 颠倒排列数组元素|改变原数组|√
+| sort()             | 排序|原数组将被改变|√
+| push()<br>pop()    | 向数组的末尾添加一个或更多元素，并返回新的长度。<br>删除数组的最后一个元素并返回删除的元素。 |会改变原数组|√
+| shift()<br>unshift | 删除并返回数组的第一个元素。<br>向数组的开头添加一个或更多元素，并返回新的长度。|会改变原数组|√
+| join()             | 把数组的所有元素放入一个字符串。|如果不提供参数，默认用逗号分隔。|√
+| map()              | 遍历数组<br>arr.map(function(elem, index, arr) {})| | ie9+
+| forEach()          | 遍历数组<br>arr.forEach(function (elem, index, arr) {})|  没有返回值。| ie9+
+| filter()           | 过滤数组成员,参数是一个函数<br>arr.filter(function (elem, index, arr) {})|不会改变原数组|ie9+
+| some()<br>every()  | 返回一个布尔值,判断数组成员是否符合某种条件||ie9+
+| reduce()<br>reduceRight()|依次处理数组的每个成员，最终累计为一个值<br>arr.reduce(function(prev,cur,index,arr){},initVal)||ie9+
+| indexOf()<br>lastIndexOf()|返回给定元素在数组中第一次出现的位置，<br>返回给定元素在数组中最后一次出现的位置<br>如果没有出现则返回-1。|不能用来搜索NaN的位置| ie9+
 
 ##### 函数(Function)
 
@@ -346,6 +417,18 @@ Object.prototype.toString.call(math) //"[object Math]"
 | floor(x)         | 对 x 进行向下取整。       | Math.floor(4.1);//4<br>Math.floor(4.6);//4     |
 | round(x)         | 四舍五入                  | Math.round(4.1);//4<br>Math.round(4.6);//5<br> |
 
+#### JSON
+
+复合类型的值只能是数组或对象，不能是函数、正则表达式对象、日期对象。
+
+原始类型的值只有四种：字符串、数值（必须以十进制表示）、布尔值和null（不能使用NaN, Infinity, -Infinity和undefined）。
+
+字符串必须使用`双引号`表示，不能使用单引号。
+
+对象的键名必须放在`双引号`里面。
+
+数组或对象最后一个成员的后面，不能加逗号。
+
 ### 类型转换
 
 > Number():使用Number函数，可以将任意类型的值转化成数值。
@@ -367,6 +450,7 @@ Object.prototype.toString.call(math) //"[object Math]"
 | {} | NaN | NaN | NaN | NaN |
 
 > String():使用String函数，可以将任意类型的值转化成字符串
+
 | 转换前 | Number() | +'' | 
 | - | - | - |
 | 'abc'|'abc'|'abc'
@@ -378,6 +462,24 @@ Object.prototype.toString.call(math) //"[object Math]"
 | [1,2]|"1,2"|'1,2'
 | [{'x':1}]|"[object Object]"|"[object Object]"
 | {'x':1}|"[object Object]"|"[object Object]"
+
+
+> Boolean():使用Boolean函数，可以将任意类型的值转为布尔值。
+
+使用`!!`可以快速达到类似效果。只有上面5种情况是返回false的。
+
+| 转换前 | Boolean() | !!val | 
+| - | - | - |
+| ''|false|false
+| null|false|false
+| 0|false|false
+| undefined|false|false
+| NaN|false|false
+| '0'|true|true
+| []|true|true
+| {}|true|true
+| new Boolean(false)|true|true
+
 
 
 ## 浏览器对象
@@ -397,8 +499,8 @@ Window 对象表示浏览器中打开的窗口。本篇结合日常使用频率�
 - document.documentElement.clientWidth
 
 3. 其余
-   document.body.clientHeight
-   document.body.clientWidth
+- document.body.clientHeight
+- document.body.clientWidth
 
 实用的 JavaScript 方案（涵盖所有浏览器）
 
@@ -505,6 +607,65 @@ clearTimeout(t)
 
 
 ## DOM
+
+### 基础
+
+DOM (Document Object Model):文档对象模型，是 HTML 和 XML 文档的编程接口。HTML DOM 定义了访问和操作 HTML 文档的标准方法。DOM 以树结构表达 HTML 文档。所有 DOM 节点对象都继承了 Node 接口，拥有一些共同的属性和方法。这是 DOM 操作的基础。
+
+![img](/images/htmltree.gif?width=100)
+
+
+### 节点
+
+在 HTML DOM (Document Object Model) 中 , 每一个元素都是 节点。Document 对象是 HTML 文档的根节点。Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。
+
+document节点对象代表整个文档，每张网页都有自己的document对象。window.document属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。
+
+基础了解
+
+| 节点 | nodeType | 对应常量 | nodeName | nodeValue(可读写)
+| - | - | - | - | - |
+| 文档节点（document）| 9 | Node.DOCUMENT_NODE | "#document" | null
+| 元素节点（element) | 1 | Node.ELEMENT_NODE | 大写的标签名 | null
+| 属性节点（attr） | 2 | Node.ATTRIBUTE_NODE | 属性的名称 | '...'
+| 文本节点（text）| 3 | Node.TEXT_NODE | '#text' | '...'
+| 文档片断节点（DocumentFragment) | 11 | Node.DOCUMENT_FRAGMENT_NODE | '#document-fragment'| null
+| 文档类型节点（DocumentType） | 10 | Node.DOCUMENT_TYPE_NODE | 文档的类型| null
+| 注释节点（Comment）| 8 | Node.COMMENT_NODE | '#comment' | '...'
+
+
+DOM 提供两种节点集合，用于容纳多个节点
+
+> NodeList:可以包含各种类型的节点。
+
+length 、forEach() 、item()、keys()、values()、entries()
+
+> HTMLCollection:只能包含 HTML 元素节点。
+
+length、只能使用for循环遍历、item()、namedItem()
+
+
+
+### js和jquery操作
+
+```javascript
+<div id="box" attr1 onclick="clickHandle();"></div>
+var elem=document.getElementById('box');
+```
+
+| 功能 | js | jquery |
+| - | - | - |
+|<b>获取元素</b>|
+| 获取指定id的元素 | document.getElementById('box') | $('#box') |
+| 获取指定class的元素 | document.getElementsByClassName('box') | $('.box) |
+|<b>样式</b>||
+| 获取指定样式 | getComputedStyle(elem).height | $('#box').css('height') |
+| 设置指定样式 | elem.style.height='50px' | $('#box').css('height','50px') |
+|<b>属性</b>|
+| 获取指定属性 | elem.getAttribute('attr1') | $('#box').attr('attr1') |
+| 设置指定属性 | elem.setAttribute('attr1','attr1Value') | $('#box').attr('attr1','attr1Value') |
+|<b>事件</b>|
+| 绑定事件 | functin clickHandle(){}<br>elem.onclick=clickHandle;<br>elem.addEventListener("click",clickHandle,false); | $('#box','click',clickHandle) |
 
 ## 高阶
 

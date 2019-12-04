@@ -69,6 +69,7 @@ tags:
 
 #### 基础实战
 > 字体和文本
+
 ```html
 <p>字体+文本</p>
 <style>
@@ -86,8 +87,48 @@ p{
   text-indent:50px;/* 文本缩进*/
   line-height:20px;/* 行高 常用来设置垂直居中*/
 }
+
+em,i{
+   font-style: normal;/*去除字体倾斜*/
+}
 </style>
 
+```
+
+> 常规
+
+```css
+span{
+  font-weight:bolder;/*字体加粗*/
+  font-style: italic;/*字体倾斜*/
+}
+em,i{
+   font-style: normal;/*去除字体倾斜*/
+}
+```
+> 超链接
+
+```css
+a{
+  cursor:pointer;/*鼠标移上去有小手*/
+  text-decoration:underline;/*下划线装饰*/
+  text-decoration:none;/*去除下划线装饰*/
+}
+a:hover{
+  opacity:.8;/*悬浮透明效果*/
+}
+```
+
+> 多余展示省略号
+```css
+p{
+  /*需要固定宽度*/
+  width: 50px;
+  /* 下面三句是固定搭配，缺一不可*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 ```
 
 > 盒子模型
@@ -142,6 +183,31 @@ p{
 
 > 浮动 [float](https://www.runoob.com/cssref/pr-class-float.html)
 
+使元素向左或向右移动，其周围的元素也会重新排列。
+```css
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+```
+浮动正常出现的问题是父元素高度塌陷。常规解决方案有两种。
+一是浮动元素末尾添加一个带有 clear: both 属性的空 div 来闭合元素
+二是父元素添加一个:after伪元素。一般情况下定义一个公共样式类 `clearfix`
+```css
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+```
 
 > 定位 position
 
